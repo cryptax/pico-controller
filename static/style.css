@@ -1,0 +1,43 @@
+body {
+  background: transparent;
+  margin: 0;
+  overflow: hidden;
+}
+
+#pico {
+  position: relative;
+  width: 300px;
+}
+
+.eyes, .eyebrows, .mouth {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#speech-bubble {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    display: none;
+}
+
+#speech-text {
+  position: absolute;
+  top: 35px;
+  left: 300px;
+  right: 100px;
+  width: 245px;
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  word-wrap: break-word;
+  z-index: 20;
+}

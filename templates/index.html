@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pico Stream</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+   <div id="pico">
+        <img src="/static/pico-body.png">
+        <img id="eyes" class="eyes" src="/static/pico-eyes-left.png">
+        <img id="eyebrows" class="eyebrows" src="/static/pico-eyebrows-normal.png">
+	<img id="speech-bubble" src="/static/pico-say.png" alt="speech bubble">
+        <div id="speech-text"></div>
+    </div>
+   </div>
+   <script>
+     document.addEventListener("DOMContentLoaded", function() {
+        function updateState() {
+            fetch("/state")
+            .then(response => response.json())
+            .then(state => {
+                document.getElementById("eyes").src = "/static/pico-eyes-" + state.eyes + ".png";
+                document.getElementById("eyebrows").src = "/static/pico-eyebrows-" + state.eyebrows + ".png";
+		const speechText = document.getElementById("speech-text");
+		const speechBubble = document.getElementById("speech-bubble");
+		if(state.say && state.say.length > 0) {
+                    speechText.textContent = state.say;
+		    speechBubble.style.display = "block";
+		} else {
+                    speechText.textContent = "";
+		    speechBubble.style.display = "none";
+		}
+            });
+        }
+	setInterval(updateState, 500);
+	updateState();
+     });
+    </script>
+</body>
+</html>
