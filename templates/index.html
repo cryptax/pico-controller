@@ -9,7 +9,8 @@
         <img src="/static/pico-body.png">
         <img id="eyes" class="eyes" src="/static/pico-eyes-left.png">
         <img id="eyebrows" class="eyebrows" src="/static/pico-eyebrows-normal.png">
-	<img id="speech-bubble" src="/static/pico-say.png" alt="speech bubble">
+        <img id="tshirt" class="tshirt" src="/static/pico-tshirt-insomnihack.png">
+	    <img id="speech-bubble" src="/static/pico-say.png" alt="speech bubble">
         <div id="speech-text"></div>
     </div>
    </div>
@@ -21,6 +22,7 @@
             .then(state => {
                 document.getElementById("eyes").src = "/static/pico-eyes-" + state.eyes + ".png";
                 document.getElementById("eyebrows").src = "/static/pico-eyebrows-" + state.eyebrows + ".png";
+                document.getElementById("tshirt").src = "/static/pico-tshirt-" + state.tshirt + ".png";
 		const speechText = document.getElementById("speech-text");
 		const speechBubble = document.getElementById("speech-bubble");
 		if(state.say && state.say.length > 0) {

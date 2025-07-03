@@ -18,15 +18,38 @@ def send(action):
 def say(message):
     print(f'Sending message: {message}')
     requests.post("http://localhost:5000/say", data={"message": message})
+
+def display():
+    print("=== Eyes:")
+    print("a=left")
+    print("d=right")
+    print("w=up")
+    print("s=down")
+
+    print("=== Eyebrows:    ")
+    print("g=nasty")
+    print("h=normal")
+
+    print("=== T-shirt: ")
+    print("i=Insomni'hack")
+    print("n=NorthSec")
+
+    print("=== Others:")
+    print("t=say")
+    print("q=quit")
+
     
-print("Press w=up a=left d=right g=nasty n=normal t=say q=quit")
+display()
 while True:
     c = getch()
     if c == "w": send("up")
     elif c == "a": send("left")
     elif c == "d": send("right")
     elif c == "g": send("nasty")
-    elif c == "n": send("normal")
+    elif c == "h": send("normal")
+    elif c == "s": send("down")
+    elif c == "i": send("insomnihack")
+    elif c == "n": send("nsec")
     elif c == "t":
         print("\nEnter your message and press Enter:")
         # repasse en mode input normal

@@ -9,7 +9,8 @@ logging.basicConfig(level=logging.DEBUG)
 state = {
     "eyes": "left", 
     "eyebrows": "normal",
-    "say" : ""
+    "say" : "",
+    "tshirt" : "insomnihack"
 }
 
 @app.route("/")
@@ -23,10 +24,12 @@ def get_state():
 @app.route("/action", methods=["POST"])
 def action():
     action = request.form.get("action")
-    if action in ["left", "up", "right"]:
+    if action in ["left", "up", "right", "bottom"]:
         state["eyes"] = action
     elif action in [ "normal", "nasty" ]:
         state["eyebrows" ] = action
+    elif action in [ "insomnihack", "nsec"]:
+        state["tshirt"] = action
     return "ok"
 
 @app.route("/say", methods=["POST"])
