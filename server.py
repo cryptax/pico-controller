@@ -24,7 +24,7 @@ def get_state():
 @app.route("/action", methods=["POST"])
 def action():
     action = request.form.get("action")
-    if action in ["left", "up", "right", "bottom"]:
+    if action in ["left", "up", "right", "down"]:
         state["eyes"] = action
     elif action in [ "normal", "nasty" ]:
         state["eyebrows" ] = action

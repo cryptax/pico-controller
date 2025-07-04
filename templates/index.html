@@ -26,10 +26,10 @@
 		const speechText = document.getElementById("speech-text");
 		const speechBubble = document.getElementById("speech-bubble");
 		if(state.say && state.say.length > 0) {
-                    speechText.textContent = state.say;
+            speechText.textContent = state.say;
 		    speechBubble.style.display = "block";
 		} else {
-                    speechText.textContent = "";
+            speechText.textContent = "";
 		    speechBubble.style.display = "none";
 		}
             });
