@@ -28,7 +28,7 @@ def action():
         state["eyes"] = action
     elif action in [ "normal", "nasty" ]:
         state["eyebrows" ] = action
-    elif action in [ "insomnihack", "nsec"]:
+    elif action in [ "blackalps", "grehack", "insomnihack", "nsec", "passthesalt", "radare", "vb"]:
         state["tshirt"] = action
     return "ok"
 
