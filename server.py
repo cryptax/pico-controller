@@ -4,13 +4,16 @@ import logging
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+
 
 # initial state
 state = {
     "eyes": "left", 
     "eyebrows": "normal",
     "say" : "",
-    "tshirt" : "insomnihack"
+    "tshirt" : "insomnihack",
+    "trousers" : "blue"
 }
 
 @app.route("/")
@@ -24,12 +27,15 @@ def get_state():
 @app.route("/action", methods=["POST"])
 def action():
     action = request.form.get("action")
+    logging.debug(f"action(): {action}")
     if action in ["left", "up", "right", "down"]:
         state["eyes"] = action
     elif action in [ "normal", "nasty" ]:
         state["eyebrows" ] = action
-    elif action in [ "blackalps", "grehack", "insomnihack", "nsec", "passthesalt", "radare", "vb"]:
+    elif action in [ "blackalps", "grehack", "insomnihack", "nsec", "pst", "radare", "vb"]:
         state["tshirt"] = action
+    elif action in [ "blue", "brown" ]:
+        state["trousers"] = action
     return "ok"
 
 @app.route("/say", methods=["POST"])

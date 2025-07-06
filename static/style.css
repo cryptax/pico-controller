@@ -13,6 +13,17 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 5;
+}
+
+.trousers {
+  position: absolute;
+  z-index: 1;
+}
+
+.body {
+  position: absolute;
+  z-index: 3;
 }
 
 #speech-bubble {

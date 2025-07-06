@@ -21,15 +21,16 @@ def say(message):
     requests.post("http://localhost:5000/say", data={"message": message})
 
 def display():
-    print(f"Eyes: arrows Misc: {Fore.YELLOW}T{Style.RESET_ALL}alk {Fore.RED}Q{Style.RESET_ALL}uit")
-    print(f"Eyebrows: Norma{Fore.YELLOW}L{Style.RESET_ALL} Nast{Fore.YELLOW}Y{Style.RESET_ALL}")
+    print(f"Eyes: Arrows Misc: {Fore.YELLOW}T{Style.RESET_ALL}alk {Fore.RED}Q{Style.RESET_ALL}uit")
+    print(f"Eyebrows: Norma{Fore.YELLOW}L{Style.RESET_ALL} Nast{Fore.YELLOW}Y{Style.RESET_ALL} "
+          f"Trousers: Bl{Fore.BLUE}U{Style.RESET_ALL}e Bro{Fore.YELLOW}W{Style.RESET_ALL}n" )
     print(f"T-shirts: {Fore.YELLOW}B{Style.RESET_ALL}lackAlps "
           f"{Fore.YELLOW}G{Style.RESET_ALL}reHack "
-          f"{Fore.YELLOW}I{Style.RESET_ALL}nsomnihack "
-          f"{Fore.YELLOW}N{Style.RESET_ALL}orthSec "
-          f"{Fore.YELLOW}P{Style.RESET_ALL}ass The Salt "
+          f"{Fore.RED}I{Style.RESET_ALL}nsomnihack "
+          f"{Fore.BLUE}N{Style.RESET_ALL}orthSec "
+          f"{Fore.RED}P{Style.RESET_ALL}assTheSalt "
           f"{Fore.YELLOW}R{Style.RESET_ALL}adare2 "
-          f"{Fore.YELLOW}V{Style.RESET_ALL}irus Bulletin ")
+          f"{Fore.GREEN}V{Style.RESET_ALL}irusBulletin ")
 
     
 display()
@@ -49,9 +50,11 @@ while True:
     elif c == "g": send("grehack")
     elif c == "i": send("insomnihack")
     elif c == "n": send("nsec")
-    elif c == "p": send("passthesalt")
+    elif c == "p": send("pst")
     elif c == "r": send("radare")
     elif c == "v": send("vb")
+    elif c == "u": send("blue")
+    elif c == "w": send("brown")
     elif c == "t":
         print("\nEnter your message and press Enter:")
         # repasse en mode input normal

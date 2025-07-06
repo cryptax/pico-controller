@@ -6,7 +6,8 @@
 </head>
 <body>
    <div id="pico">
-        <img src="/static/pico-body.png">
+        <img id="body" class="body" src="/static/pico-body.png">
+        <img id="trousers" class="trousers" src="/static/pico-trousers-blue.png">
         <img id="eyes" class="eyes" src="/static/pico-eyes-left.png">
         <img id="eyebrows" class="eyebrows" src="/static/pico-eyebrows-normal.png">
         <img id="tshirt" class="tshirt" src="/static/pico-tshirt-insomnihack.png">
@@ -20,6 +21,7 @@
             fetch("/state")
             .then(response => response.json())
             .then(state => {
+                document.getElementById("trousers").src = "/static/pico-trousers-" + state.trousers + ".png";
                 document.getElementById("eyes").src = "/static/pico-eyes-" + state.eyes + ".png";
                 document.getElementById("eyebrows").src = "/static/pico-eyebrows-" + state.eyebrows + ".png";
                 document.getElementById("tshirt").src = "/static/pico-tshirt-" + state.tshirt + ".png";
