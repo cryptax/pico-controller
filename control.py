@@ -1,6 +1,7 @@
 import requests
 from colorama import init, Fore, Style
 import sys, termios, tty, requests
+import time
 
 def getch():
     fd = sys.stdin.fileno()
@@ -31,19 +32,39 @@ def display():
           f"{Fore.RED}P{Style.RESET_ALL}assTheSalt "
           f"{Fore.YELLOW}R{Style.RESET_ALL}adare2 "
           f"{Fore.GREEN}V{Style.RESET_ALL}irusBulletin ")
+    print(f"Sequence: {Fore.ORANGE}1{Style.RESET_ALL}1")          
+
+def sequence1():
+    send("nasty")
+    send("left")
+    time.sleep(1)
+    send("normal")         
+    send("up")
+    time.sleep(1)
+    send("nasty")
+    send("right")
+    time.sleep(1)
+    send("normal")
+    send("down")
+    time.sleep(1)
+    send("right")
 
     
 display()
 while True:
     c = getch().lower()
-    if c == '\x1b[A':
-        print("up")
-    elif c == '\x1b[B':
-        print("down")
-    elif c == '\x1b[C':
-        print("right")
-    elif c == '\x1b[D':
-        print("left")
+    if c == '\x1b':
+        # beginning of an arrow
+        c += getch()
+        c += getch()
+        if c == '\x1b[A':
+            send("up")
+        elif c == '\x1b[B':
+            send("down")
+        elif c == '\x1b[C':
+            send("right")
+        elif c == '\x1b[D':
+            send("left")
     elif c == "y": send("nasty")
     elif c == "l": send("normal")
     elif c == "b": send("blackalps")
@@ -55,6 +76,7 @@ while True:
     elif c == "v": send("vb")
     elif c == "u": send("blue")
     elif c == "w": send("brown")
+    elif c == '1': sequence1()
     elif c == "t":
         print("\nEnter your message and press Enter:")
         # repasse en mode input normal
